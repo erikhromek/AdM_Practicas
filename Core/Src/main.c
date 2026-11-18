@@ -96,6 +96,7 @@ int main(void)
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
 
+  // Ejercicio 2
   uint16_t esc = 3;
   uint16_t vec[] = {500, 1000, 4000, 4001, 800};
   uint16_t lon = sizeof(vec)/sizeof(vec[0]);
@@ -103,6 +104,7 @@ int main(void)
   productoEscalar12(vec, vecOut1, lon, esc);
   asm_productoEscalar12(vec, vecOut2, lon, esc);
 
+  // Ejercicio 4
   uint32_t a = 1023;
   uint32_t b = bitfield_toggle(a, 5, 3);
   uint32_t c = asm_bitfield_toggle(a, 5, 31);
