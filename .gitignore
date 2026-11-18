@@ -1,0 +1,64 @@
+# ==========================================
+# C / Embedded Build Artifacts
+# ==========================================
+# Object files and dependency lists
+*.o
+*.obj
+*.d
+*.su
+*.cyclo
+
+# Libraries and archives
+*.a
+*.lib
+*.so
+*.dll
+
+# Compiled firmware binaries and debug symbols
+*.elf
+*.bin
+*.hex
+*.s19
+*.srec
+*.out
+*.exe
+*.map
+*.lst
+*.lss
+*.sym
+
+# Default Eclipse CDT & vendor build output folders
+Debug/
+Release/
+Build/
+build/
+bin/
+obj/
+
+# ==========================================
+# Eclipse / CDT Workspace & Metadata
+# ==========================================
+.metadata/
+.recommenders/
+.settings/
+.externalToolBuilders/
+.autotools
+.loadpath
+.factorypath
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+
+# ==========================================
+# Debug & Launch Configurations (Optional)
+# ==========================================
+# Uncomment the line below if your team uses different debug probes (ST-Link, J-Link)
+# *.launch
+
+# ==========================================
+# OS-Specific Files
+# ==========================================
+.DS_Store
+Thumbs.db
