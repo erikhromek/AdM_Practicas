@@ -23,6 +23,7 @@
 /* USER CODE BEGIN Includes */
 
 #include "functions.h"
+#include "functions_ge2.h"
 
 /* USER CODE END Includes */
 
@@ -108,6 +109,17 @@ int main(void)
   uint32_t a = 1023;
   uint32_t b = bitfield_toggle(a, 5, 3);
   uint32_t c = asm_bitfield_toggle(a, 5, 31);
+
+  /* GE2 */
+
+  // Ejercicio 1
+
+  int16_t GPS_Lat[LONGITUD_EJ1];
+  int16_t GPS_Long[LONGITUD_EJ1];
+  GPS_unpack(GPS_data, GPS_Lat,GPS_Long, LONGITUD_EJ1);
+
+
+
 
   /* USER CODE END 2 */
 
