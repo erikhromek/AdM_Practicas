@@ -50,3 +50,25 @@ void invertir(uint16_t *buffer, uint16_t longitud) {
 		buffer[i - 1] = aux;
 	}
 }
+
+void downSample(int32_t *Signal_HF, int32_t *Signal_LF, uint16_t longitud,
+		uint16_t N) {
+	if (Signal_HF == NULL)
+		return;
+	if (Signal_LF == NULL)
+		return;
+	if (longitud < 1)
+		return;
+	if (N < 1)
+		return;
+	if (longitud % N > 0)
+		return;
+
+	for (uint16_t i = longitud; i > 0; i--) {
+		if ((i - 1) % N == 0) {
+			uint16_t nuevoIndice = (longitud - i) / N;
+			Signal_LF[nuevoIndice] = Signal_HF[i - 1];
+		}
+
+	}
+}

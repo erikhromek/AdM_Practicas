@@ -113,6 +113,49 @@
 		pop {r4, r5}
 		bx lr
 
+// void asm_downSample(int32_t *Signal_HF, int32_t *Signal_LF, uint16_t longitud, uint16_t N);
+/*
+r0
+r1
+r2 = longitud
+r3 = N
+
+
+*/
+.thumb_func
+	asm_downSample:
+		push {r4 - r6}
+		cbz r0, _exit4           // Salir si buffer es una dirección nula
+		cbz r1, _exit4           // Salir si buffer es una dirección nula
+		cbz r2, _exit4           // Salir si longitud es cero
+		cbz r3, _exit4           // Salir si N es cero
+
+
+		udiv r4, r2, r3 // r4 = r2 / r3
+		mls  r5, r4, r3, r2 // r5 = r2 - r4 * r3, calcula el resto
+		cbnz r5, _exit4 // Salgo si longitud no es cero
+
+		mov r4, #0 // iterador para ir subiendo
+		mov r5, #0 // Iterador para ir subiendo de a 1
+
+	_loop4:
+		cmp r4, r2
+		bhs _exit4 // llegué a longitud
+
+		ldr r6, [r0, r4, LSL #2] // cargo el valor actual a colocar en r6
+		str r6, [r1, r5, LSL #2] // guardo r6 en la posicion de r1 incrementando por 1
+
+		add r4, r3 // incremento posicion
+
+		add r5, #1
+
+		b _loop4
+
+
+	_exit4:
+		pop {r4 - r6}
+		bx lr
+
 
 
 
